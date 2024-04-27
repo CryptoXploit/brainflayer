@@ -4,7 +4,7 @@ OBJ_UTIL = hex.o bloom.o mmapf.o hsearchf.o ec_pubkey_fast.o ripemd160_256.o dld
 OBJ_ALGO = $(patsubst %.c,%.o,$(wildcard algo/*.c))
 OBJECTS = $(OBJ_MAIN) $(OBJ_UTIL) $(OBJ_ALGO)
 BINARIES = brainflayer hexln hex2blf blfchk ecmtabgen filehex
-LIBS = -lssl -lrt -lcrypto -lz -lgmp -lpthread
+LIBS = -lrt -lcrypto -lgmp
 CFLAGS = -O3 \
          -flto -funsigned-char -falign-functions=16 -falign-loops=16 -falign-jumps=16 \
          -Wall -Wextra -Wno-pointer-sign -Wno-sign-compare \
@@ -13,7 +13,9 @@ COMPILE = gcc $(CFLAGS)
 
 all: $(BINARIES)
 
-
+.git:
+	@echo 'This does not look like a cloned git repo. Unable to fetch submodules.'
+	@false
 
 secp256k1/.libs/libsecp256k1.a: .git
 	git submodule init
