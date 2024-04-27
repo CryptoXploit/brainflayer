@@ -8,19 +8,12 @@ Description
 -----------
 
 
-It was originally released as part of my DEFCON talk about cracking brainwallets
+It was originally released as part of DEFCON talk about cracking brainwallets
 ([slides](https://rya.nc/dc23), [video](https://rya.nc/b6), [why](https://rya.nc/defcon-brainwallets.html)).
 
 The name is a reference to [Mind Flayers](https://en.wikipedia.org/wiki/Illithid),
 a race of monsters from the Dungeons & Dragons role-playing game. They eat
 brains, psionically enslave people and look like lovecraftian horrors.
-
-The current release is more than four times faster than the DEFCON release, and
-many features have been added.
-
-If brainflayer is useful to you, please get in touch to let me know. I'm very
-interested in any research it's being used for, and I'm generally happy to
-collaborate with academic groups.
 
 Disclaimer
 ----------
@@ -36,6 +29,17 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
+
+Building
+--------
+
+Dependencies should install with
+
+```
+apt install autoconf openssl libgmp3-dev libimobiledevice-dev libplist-dev libusbmuxd-dev libssl-dev zlib1g-dev dh-autoreconf libltdl-dev libltdl7 libtool
+```
+
+Supported build target is currently Ubuntu 20.04 and above on amd64/x86_64. 
 
 Usage
 -----
@@ -131,21 +135,6 @@ bloom filter file for. It's very fast - it can easily check millions of
 hash160s per second. Not entirely sure what this is good for but I'm sure
 you'll come up with something.
 
-Building
---------
-
-Should compile on Linux with `make` provided you have the required devel libs
-installed (at least openssl and gmp are required along with libsecp256k1's
-build dependencies). I really need to learn autotools. If you file an issue
-about a build failure in libsecp256k1 I will close it.
-
-Dependencies should install with
-
-```
-apt install build-essential libgmp-dev libssl-dev
-```
-
-Supported build target is currently Ubuntu 20.04+ on amd64/x86_64. 
 
 Authors
 -------
